@@ -137,3 +137,140 @@ Minimize DOM Updates: Use keys in lists and avoid deeply nested props/state upda
 Code Splitting: Use Webpack or tools like react-loadable to split the bundle.
 
 Profile and Debug: Use React Developer Tools to identify bottlenecks.
+
+
+5 Explain how you would optimize the performance of a React app
+The performance of a React application can be affected by multiple aspects, but some of the most common ones and their way to fix them are:
+
+Reduce Re-renders:
+
+Use React.memo and useCallback to avoid unnecessary updates.
+
+Split large components into smaller, focused components.
+
+Lazy Loading: Load components or routes on demand using React.lazy and Suspense.
+
+Efficient State Management: Keep state local where possible and avoid overusing global state.
+
+Minimize DOM Updates: Use keys in lists and avoid deeply nested props/state updates.
+
+Code Splitting: Use Webpack or tools like react-loadable to split the bundle.
+
+Profile and Debug: Use React Developer Tools to identify bottlenecks.
+
+
+6 How do you manage asynchronous code in JavaScript?
+JavaScript handles asynchronous operations, like fetching data from an API or reading files, through different paradigms: callbacks, promises, and async/await. Each offers unique advantages and challenges. Here's a detailed look:
+
+
+7 What it is:
+A callback is a function passed as an argument to another function to be executed later, usually after an asynchronous task completes.
+
+Example:
+
+javascript
+
+fs.readFile('file.txt', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data.toString());
+});
+
+**Callback Hell:** As tasks become more complex, nesting callbacks leads to hard-to-read and maintainable code.
+doTask1(() => {
+  doTask2(() => {
+    doTask3(() => {
+      console.log('All tasks done!');
+    });
+  });
+});
+
+ 
+**A promise** represents a value that may be available now, in the future, or never usually coming as a result of an asynchronous operation. It provides a cleaner way to handle asynchronous operations, chaining actions with .then() and catching errors with .catch().
+fetch('https://api.example.com/data')
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Fetched data:', data);
+  })
+  .catch((error) => {
+    console.error('Error fetching data:', error);
+  });
+
+**Async/await** is built on promises but provides a more synchronous and readable syntax for managing this type of code.
+Functions declared with async automatically return a promise, and the await keyword pauses execution until a promise resolves.
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log('Fetched data:', data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+
+fetchData();
+
+
+
+**8 What is CORS, and how do you handle it in a web application?**
+CORS (Cross-Origin Resource Sharing) controls access to resources from a different origin (domain, protocol, or port).
+
+const cors = require('cors');
+
+app.use(cors({ origin: 'https://example.com' }));
+
+
+**9 How do you debug an issue that occurs in both the frontend and back-end?**
+Reproduce the Issue: Identify when and where it happens.
+
+Frontend Debugging:
+
+Use browser DevTools to inspect network requests (e.g., check HTTP status codes, payloads).
+
+Check console errors for clues.
+
+Back-End Debugging:
+
+Check server logs for errors or trace logs for the request.
+
+Add breakpoints or use a debugger (e.g., Node.js Inspector).
+
+Communication Point: Verify API endpoints, payload structure, and data format.
+
+End-to-End Testing: Test the workflow with tools like Postman to isolate the layer causing issues.
+
+
+**10 Docker containerizes applications and their dependencies, ensuring they run consistently across environments.**
+
+**In Development:**
+
+Provides isolated environments (e.g., for different projects).
+
+Simplifies onboarding (e.g., no need to manually install dependencies).
+
+**In Deployment:**
+
+Ensures consistent environments between dev and production.
+
+Integrates with orchestration tools (e.g., Kubernetes) for scalability.
+
+
+**11 How would you implement real-time updates in a web application?**
+**Use WebSockets:** Establish a persistent connection for real-time communication.
+const socket = new WebSocket('ws://server.com');
+socket.onmessage = (message) => console.log(message.data);
+
+**Server Setup:** Use libraries like socket.io for WebSocket management.
+const io = require('socket.io')(server);
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => io.emit('chat message', msg));
+});
+
+Fallback for Compatibility: Implement long polling or server-sent events (SSE) if WebSockets aren't feasible.
+Database Integration: Use event-driven solutions like Redis pub/sub for scalability in multi-server setups.
+Security: Ensure secure WebSocket connections (wss://) and authenticate users.
+
+**12 react-helmet**
+**Meta Tags:** Dynamically set titles, descriptions, and keywords using libraries like react-helmet.
