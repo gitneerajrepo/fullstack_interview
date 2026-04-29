@@ -88,4 +88,52 @@ More flexible deployments. If these values need to change, by having them as env
 
 
 **Intermediate Level**
+**1 What is the difference between Flexbox and CSS Grid?**
+**Flexbox:** Designed for one-dimensional layouts (row or column). Best for aligning items within a container. Example use cases: Navigation bars or centering elements.
 
+**CSS Grid:** Designed for two-dimensional layouts (rows and columns). Best for creating complex grid-based layouts. Example use cases: Full-page layouts or dashboards.
+
+**2 What are React hooks, and why are they used?**
+React hooks are functions that let you use state and other React features in functional components.
+
+With hooks you can simplify state and lifecycle management without needing class components. They also enable code reuse through custom hooks.
+**Examples of different hooks:**
+useState for managing state.
+useEffect for handling side effects (e.g., fetching data).
+useContext for global state.
+
+**3 How does state management work in React applications?**
+In React you have two different ways to handle state, depending on the scope of the data inside that state.
+
+If the scope is local, then you can handle it through a simple useState hook inside the component itself.
+
+If on the other hand, you need to store a global state which is accessible for many components, then you can use something like the Context API or specific state libraries like Redux, MobX or Zustand.
+
+
+The way state handling works in React (in general terms) works like this:
+
+State is updated via actions (e.g., event handlers).
+
+Updated state triggers re-renders to reflect changes in the UI.
+
+Avoid excessive re-renders by optimizing context or using memoization (React.memo, useMemo).
+
+
+**4 Explain how you would optimize the performance of a React app**
+The performance of a React application can be affected by multiple aspects, but some of the most common ones and their way to fix them are:
+
+Reduce Re-renders:
+
+Use React.memo and useCallback to avoid unnecessary updates.
+
+Split large components into smaller, focused components.
+
+Lazy Loading: Load components or routes on demand using React.lazy and Suspense.
+
+Efficient State Management: Keep state local where possible and avoid overusing global state.
+
+Minimize DOM Updates: Use keys in lists and avoid deeply nested props/state updates.
+
+Code Splitting: Use Webpack or tools like react-loadable to split the bundle.
+
+Profile and Debug: Use React Developer Tools to identify bottlenecks.
