@@ -1,6 +1,7 @@
 # fullstack_interview
 full stachkterview questions
 
+**Beginner**
 1 What is full-stack development?
 Full-stack development refers to the practice of building and maintaining both the frontend and backend of a web application or web service. A full-stack developer works across all layers of the application, ensuring seamless functionality from the user interface to the server and database.
 Key aspects of full-stack development include:
@@ -60,4 +61,31 @@ Get elements: document.getElementById("id"), querySelector(".class").
 Modify content: element.innerHTML = "New Content".
 Change styles: element.style.color = "blue".
 Add/remove elements: appendChild(), removeChild().
+
+8 What is the difference between relational and non-relational databases?
+**Relational: ** Stores data in structured tables with rows and columns (e.g., MySQL, PostgreSQL). Good for relationships and complex queries.
+**Non-relational: ** Stores data in flexible formats like documents, key-value pairs, or graphs (e.g., MongoDB, Redis). Better for unstructured or hierarchical data.
+
+**9 How would you handle user authentication in a web application?**
+There are many ways to handle authentication, from simple auth, all the way to oAuth. The right option depends on your particular business needs.
+A classical example is using JWT for authenticating a website with a RESTful API using the following process:
+Frontend: Present a login form to collect credentials from the user.
+Backend: Verify credentials against a database and if they’re valid, create a signed token and return it in the response.
+Secure connection: From this point on, the frontend will send the token on every request and the backend will validate it to ensure it’s a valid and authenticated user.
+Secured best practices: Ensure your passwords are hashed (e.g., with bcrypt) and use HTTPS for a secured data transmission channel.
+
+**10 What is the purpose of package.json in a Node.js project?**
+The package.json file in a Node.js project has multiple uses. It defines the project's metadata, like its name, version, and description. It also lists the dependencies and devDependencies required to run or develop the application, as well as scripts for tasks like building, testing, or running the app (and any custom script you’d like to add).
+
+Finally, it ensures reproducible installations by allowing the npm install command to pull consistent dependencies, ensuring you can easily port your project into other systems.
+
+11 What are environment variables, and how are they used?
+Environment variables store configuration values (e.g., API keys, database URLs) outside the codebase. This is important for two main reasons:
+
+Security. By extracting these values (which tend to be private) from the codebase, you avoid potential code leaks from becoming a bigger security problem.
+
+More flexible deployments. If these values need to change, by having them as environment variables you don’t need to re-deploy your code, you just need to reload those values (either by restarting the app, or hot reloading the values from a file).
+
+
+**Intermediate Level**
 
