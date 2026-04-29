@@ -274,3 +274,21 @@ Security: Ensure secure WebSocket connections (wss://) and authenticate users.
 
 **12 react-helmet**
 **Meta Tags:** Dynamically set titles, descriptions, and keywords using libraries like react-helmet.
+
+**Explain how to handle memory leaks in frontend applications**
+Memory leaks usually happen when unused resources (e.g., DOM elements, event listeners, or data structures) are not properly released, causing unnecessary memory consumption.
+
+Common Solutions:
+
+Clean up event listeners: Remove listeners when components unmount:
+useEffect(() => {
+  window.addEventListener('resize', handler);
+  return () => window.removeEventListener('resize', handler);
+}, []);
+
+
+
+Abort fetch requests: Use AbortController to cancel pending API calls:
+const controller = new AbortController();
+fetch(url, { signal: controller.signal });
+return () => controller.abort();
