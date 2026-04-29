@@ -46,7 +46,7 @@ CSS selectors are patterns used to select and style specific elements in an HTML
 
 Selectors allow you to target elements precisely, enabling you to control layout, colors, fonts, and other visual aspects of your website. They are essential for creating structured and maintainable CSS code.
 
-There are different types of selectors, categorized based on what they target:
+**There are different types of selectors, categorized based on what they target:**
 1. Elements
 2. Classes
 3. ID
@@ -54,5 +54,10 @@ There are different types of selectors, categorized based on what they target:
 5. Descendant: Another way to target other elements is to target them based on the parent element. This method works with any combination of the above, so you can potentially target elements using a specific class that are descendants of an element with a specific attribute value (or any other combination you can think of). Example: div p {}
 
 
-
+7 How does JavaScript manipulate the DOM?
+**JavaScript accesses and modifies the DOM using methods like:**
+Get elements: document.getElementById("id"), querySelector(".class").
+Modify content: element.innerHTML = "New Content".
+Change styles: element.style.color = "blue".
+Add/remove elements: appendChild(), removeChild().
 
